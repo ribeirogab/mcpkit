@@ -2,8 +2,8 @@ import { z } from 'zod';
 
 import { McpServer, type McpTool } from '../dist';
 
-// Initialize a new MCP server with the name 'greet'
-const server = new McpServer({ name: 'greet' });
+// Initialize a new MCP server with the name 'greet-server'
+const server = new McpServer({ name: 'greet-server' });
 
 // Define a new tool named 'greet'
 const tool: McpTool = {
