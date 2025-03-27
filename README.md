@@ -1,9 +1,6 @@
 # MCPKit
 
-[![NPM Version](https://img.shields.io/npm/v/mcpkit)](https://www.npmjs.com/package/mcpkit)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-A simple and lightweight TypeScript library for creating [MCP](https://modelcontextprotocol.io/) (Model Context Protocol) servers.
+A simple TypeScript library for creating [MCP](https://modelcontextprotocol.io/) (Model Context Protocol) servers.
 
 ## Features
 
