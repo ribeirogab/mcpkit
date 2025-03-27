@@ -1,0 +1,55 @@
+{
+  "name": "mcpkit",
+  "version": "0.0.1",
+  "repository": "https://github.com/ribeirogab/mcpkit.git",
+  "author": "ribeirogab <ribeirogabx@gmail.com>",
+  "license": "MIT",
+  "description": "A toolkit for building MCP servers",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "publish:npm": "npm run build && npm publish",
+    "lint": "eslint src/**/*"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "./.eslintrc.js"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.8.0",
+    "@types/node": "^22.13.14",
+    "zod": "^3.24.2",
+    "zod-to-json-schema": "^3.24.5"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "eslint": "8.57.1",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "prettier": "3.3.3",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  }
+}
