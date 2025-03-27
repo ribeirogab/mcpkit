@@ -1,7 +1,7 @@
 {
-  "name": "mcpkit",
+  "name": "mcpx",
   "version": "0.0.1",
-  "repository": "https://github.com/ribeirogab/mcpkit.git",
+  "repository": "https://github.com/ribeirogab/mcpx.git",
   "author": "ribeirogab <ribeirogabx@gmail.com>",
   "license": "MIT",
   "description": "A toolkit for building MCP servers",

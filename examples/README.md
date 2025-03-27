@@ -1,6 +1,6 @@
-# MCPKit Examples
+# mcpx Examples
 
-This directory contains example implementations using MCPKit to create MCP (Model Context Protocol) servers.
+This directory contains example implementations using mcpx to create MCP (Model Context Protocol) servers.
 
 ## Available Examples
 
@@ -48,10 +48,10 @@ mcp-inspector
 
 ## Creating Your Own Examples
 
-Feel free to create your own examples based on these templates. The basic structure for an MCP server using MCPKit is:
+Feel free to create your own examples based on these templates. The basic structure for an MCP server using mcpx is:
 
 ```typescript
-import { McpServer } from 'mcpkit';
+import { McpServer } from 'mcpx';
 import { z } from 'zod';
 
 // Create a server instance
