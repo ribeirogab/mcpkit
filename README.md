@@ -1,4 +1,4 @@
-# mcpx
+# Simple MCP
 
 A simple TypeScript library for creating [MCP](https://modelcontextprotocol.io/) (Model Context Protocol) servers.
 
@@ -12,13 +12,13 @@ A simple TypeScript library for creating [MCP](https://modelcontextprotocol.io/)
 ## Installation
 
 ```bash
-npm install mcpx
+npm install simple-mcp
 ```
 
 ## Quickstart
 
 ```typescript
-import { McpServer } from 'mcpx';
+import { McpServer } from 'simple-mcp';
 import { z } from 'zod';
 
 // Create a server instance
@@ -48,10 +48,10 @@ server.start({ transportType: 'stdio' });
 
 ## Examples
 
-Check out the [examples directory](https://github.com/ribeirogab/mcpx/tree/main/examples) for more complete examples:
+Check out the [examples directory](https://github.com/ribeirogab/simple-mcp/tree/main/examples) for more complete examples:
 
-- [Greeting Tool](https://github.com/ribeirogab/mcpx/tree/main/examples/greet.ts) - Simple greeting example
-- [Calculator Tool](https://github.com/ribeirogab/mcpx/tree/main/examples/calculator.ts) - Mathematical operations example
+- [Greeting Tool](https://github.com/ribeirogab/simple-mcp/tree/main/examples/greet.ts) - Simple greeting example
+- [Calculator Tool](https://github.com/ribeirogab/simple-mcp/tree/main/examples/calculator.ts) - Mathematical operations example
 
 ## Contributing
 
