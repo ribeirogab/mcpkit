@@ -16,22 +16,17 @@ A more advanced example that implements a calculator tool capable of performing 
 
 After starting your MCP server, you can test it using various MCP clients:
 
-### Using Claude
+### Using Claude Desktop
 
-If you're using Claude, you can configure it to use your MCP server by adding the following to your Claude configuration:
+You can use your MCP server with Claude Desktop by following the instructions in the [Claude Desktop MCP Quickstart](https://modelcontextprotocol.io/quickstart/user).
 
-```json
-{
-  "mcpServers": {
-    "my-mcp-server": {
-      "command": "node",
-      "args": [
-        "${YOUR_FULL_PATH}/dist/examples/greet.js"
-      ]
-    }
-  }
-}
-```
+### Using Windsurf
+
+Windsurf, the agentic IDE by Codeium, supports MCP servers. Check out the [Windsurf MCP documentation](https://docs.codeium.com/windsurf/mcp) for details on how to connect your MCP server.
+
+### Using Cursor
+
+Cursor also supports MCP servers. See the [Cursor MCP documentation](https://docs.cursor.com/context/model-context-protocol) for integration instructions.
 
 ### Using MCP CLI
 
@@ -84,4 +79,3 @@ server.tool({
 
 // Start the server
 server.start({ transportType: 'stdio' });
-```
