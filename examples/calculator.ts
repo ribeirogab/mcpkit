@@ -1,6 +1,5 @@
+import { McpServer, type McpTool } from 'simple-mcp';
 import { z } from 'zod';
-
-import { McpServer, type McpTool } from '../dist';
 
 // Initialize a new MCP server with the name 'calculator-server'
 const server = new McpServer({ name: 'calculator-server', version: '1.0.0' });
