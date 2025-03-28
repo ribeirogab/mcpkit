@@ -50,6 +50,8 @@ mcp-inspector
 
 Feel free to create your own examples based on these templates. The basic structure for an MCP server using simple-mcp is:
 
+### Function-based Approach
+
 ```typescript
 import { McpServer } from 'simple-mcp';
 import { z } from 'zod';
@@ -76,6 +78,43 @@ server.tool({
     };
   }
 });
+
+// Start the server
+server.start({ transportType: 'stdio' });
+```
+
+### Class-based Approach
+
+```typescript
+import { McpServer, type McpTool } from 'simple-mcp';
+import { z, ZodObject } from 'zod';
+
+// Define your tool as a class implementing McpTool
+class MyTool implements McpTool {
+  name = 'my-tool';
+  
+  parameters = {
+    param1: z.string().describe('Description of param1')
+  };
+  
+  async execute(request: z.infer<ZodObject<typeof this.parameters>>) {
+    // Implement tool logic
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `Result: ${request.param1}`
+        }
+      ]
+    };
+  }
+}
+
+// Create a server instance
+const server = new McpServer({ name: 'my-server' });
+
+// Register the class-based tool
+server.tool(new MyTool());
 
 // Start the server
 server.start({ transportType: 'stdio' });

@@ -24,7 +24,7 @@ import { z } from 'zod';
 // Create a server instance
 const server = new McpServer({ name: 'my-server' });
 
-// Add a tool
+// Register the tool with the server
 server.tool({
   name: 'greet',
   parameters: {
@@ -35,7 +35,7 @@ server.tool({
       content: [
         {
           type: 'text',
-          text: `Hello, ${name}!`
+          text: `Hello, ${name}! Nice to meet you.`
         }
       ]
     };
@@ -43,6 +43,47 @@ server.tool({
 });
 
 // Start the server
+server.start({ transportType: 'stdio' });
+```
+
+## Class-based Implementation
+
+You can also implement MCP tools using classes:
+
+```typescript
+import { McpServer, type McpTool } from 'simple-mcp';
+import { z } from 'zod';
+
+const parameters = z.object({
+  name: z.string().describe('The name is required'),
+});
+
+class GreetTool implements McpTool<typeof parameters.shape> {
+  public readonly name = 'greet';
+  public readonly parameters = parameters.shape;
+
+  public async execute({ name }: z.infer<typeof parameters>) {
+    return {
+      content: [
+        {
+          type: 'text',
+          text: `Hello, ${name}! Nice to meet you.`,
+        },
+      ],
+    };
+  }
+}
+
+// Initialize a new MCP server with the name 'greet-server'
+const server = new McpServer({ name: 'greet-server' });
+
+// Create an instance of the GreetTool class
+const greetTool = new GreetTool();
+
+// Register the tool with the server
+server.tool(greetTool);
+
+// Start the server using stdio as the transport method
 server.start({ transportType: 'stdio' });
 ```
 
