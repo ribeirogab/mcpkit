@@ -1,26 +1,26 @@
 import { McpServer, type McpTool } from 'simple-mcp';
-import { z } from 'zod';
+import { z, ZodObject } from 'zod';
 
-const parameters = z.object({
+const parameters = {
   name: z.string().describe('The name is required'),
-});
+};
 
 /**
  * GreetTool class implements the McpTool interface
  * This demonstrates how to create an MCP tool using a class-based approach
  */
-class GreetTool implements McpTool<typeof parameters.shape> {
+class GreetTool implements McpTool<typeof parameters> {
   // Tool name
   public readonly name = 'greet';
 
   // Define parameters with Zod schema
-  public readonly parameters = parameters.shape;
+  public readonly parameters = parameters;
 
   /**
    * Execute method that will be called when the tool is invoked
    * @param request The validated request parameters
    */
-  public async execute({ name }: z.infer<typeof parameters>) {
+  public async execute({ name }: z.infer<ZodObject<typeof this.parameters>>) {
     return {
       content: [
         {

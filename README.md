@@ -52,17 +52,17 @@ You can also implement MCP tools using classes:
 
 ```typescript
 import { McpServer, type McpTool } from 'simple-mcp';
-import { z } from 'zod';
+import { z, ZodObject } from 'zod';
 
-const parameters = z.object({
+const parameters = {
   name: z.string().describe('The name is required'),
-});
+};
 
-class GreetTool implements McpTool<typeof parameters.shape> {
+class GreetTool implements McpTool<typeof parameters> {
   public readonly name = 'greet';
-  public readonly parameters = parameters.shape;
+  public readonly parameters = parameters;
 
-  public async execute({ name }: z.infer<typeof parameters>) {
+  public async execute({ name }: z.infer<ZodObject<typeof this.parameters>>) {
     return {
       content: [
         {
